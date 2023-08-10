@@ -1,4 +1,4 @@
-import { Form, Radio } from "antd";
+import { Form, Radio, Button } from "antd";
 import React, { useEffect, useState } from "react";
 import {
   Lable,
@@ -23,7 +23,6 @@ import * as message from "../../components/Message/Message";
 import { updateUser } from "../../redux/slides/userSlide";
 import { useNavigate } from "react-router-dom";
 import { removeAllOrderProduct } from "../../redux/slides/orderSlide";
-import { PayPalButton } from "react-paypal-button-v2";
 import * as PaymentService from "../../services/PaymentService";
 
 const PaymentPage = () => {
@@ -376,7 +375,7 @@ const PaymentPage = () => {
               </div>
               {payment === "paypal" && sdkReady ? (
                 <div style={{ width: "320px" }}>
-                  <PayPalButton
+                  <Button
                     amount={Math.round(totalPriceMemo / 30000)}
                     // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                     onSuccess={onSuccessPaypal}
